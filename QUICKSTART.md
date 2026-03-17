@@ -111,6 +111,11 @@ Once deployed and configured, you can ask your AI:
 - "What are the coordinates of Tokyo?"
 - "Find related topics to artificial intelligence"
 - "Search Japanese Wikipedia for information about anime"
+- "Get article by page ID 186306"
+- "Get page links for Linux with continuation"
+- "Show recent revisions for OpenAI"
+- "Extract citations from the article on Neural network"
+- "Give me disambiguation options for Java"
 
 ---
 

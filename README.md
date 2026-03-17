@@ -12,6 +12,12 @@ This MCP server provides the following tools:
 - **get_sections** - Get the sections of a Wikipedia article
 - **get_coordinates** - Get the geographic coordinates of a Wikipedia article
 - **get_related_topics** - Get topics related to a Wikipedia article
+- **get_article_by_pageid** - Fetch an article using a stable Wikipedia page ID
+- **get_page_links** - Get paginated internal links from an article
+- **get_page_revisions** - Get recent revision metadata for an article
+- **get_citations** - Extract citation/reference URLs from an article
+- **get_infobox** - Extract structured infobox key-value facts
+- **get_disambiguation_options** - Resolve disambiguation pages into candidate titles
 
 All tools support multi-language Wikipedia by specifying a language code (e.g., 'en', 'es', 'fr', 'ja', 'zh').
 
@@ -167,6 +173,10 @@ Once connected, you can ask your AI assistant:
 - "What are the geographic coordinates of Mount Everest?"
 - "Find related topics to artificial intelligence on Wikipedia"
 - "Search Japanese Wikipedia for information about Tokyo" (the server will handle the language parameter)
+- "Get article 186306 from English Wikipedia by page ID"
+- "Show me revision history for the article about CRISPR"
+- "Extract citations for the article Large language model"
+- "List disambiguation options for Mercury"
 
 ## API Endpoints
 
@@ -200,6 +210,35 @@ Once connected, you can ask your AI assistant:
 - `title` (string, required): Article title
 - `limit` (number, optional): Maximum results (1-50, default: 10)
 - `language` (string, optional): Wikipedia language code (default: 'en')
+
+### get_article_by_pageid
+- `pageid` (number, required): Stable Wikipedia page ID
+- `language` (string, optional): Wikipedia language code (default: `en`)
+
+### get_page_links
+- `title` (string, required): Article title
+- `limit` (number, optional): Maximum links per page (1-500, default: 100)
+- `continueToken` (string, optional): Continue token from a previous call
+- `language` (string, optional): Wikipedia language code (default: `en`)
+
+### get_page_revisions
+- `title` (string, required): Article title
+- `limit` (number, optional): Maximum revisions (1-50, default: 10)
+- `language` (string, optional): Wikipedia language code (default: `en`)
+
+### get_citations
+- `title` (string, required): Article title
+- `limit` (number, optional): Maximum citations (1-200, default: 50)
+- `language` (string, optional): Wikipedia language code (default: `en`)
+
+### get_infobox
+- `title` (string, required): Article title
+- `language` (string, optional): Wikipedia language code (default: `en`)
+
+### get_disambiguation_options
+- `title` (string, required): Possibly ambiguous title
+- `limit` (number, optional): Maximum options (1-50, default: 20)
+- `language` (string, optional): Wikipedia language code (default: `en`)
 
 ## Architecture
 
